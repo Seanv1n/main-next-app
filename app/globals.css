@@ -16,12 +16,249 @@
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.type-grass {
+  background-color: #3fa12a;
+  border-radius: 1rem;
+  padding: 0.5rem;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin: 0.5rem;
+  outline: 0.2rem solid white;
+}
+
+.type-fire {
+  background-color: #e62828;
+  border-radius: 1rem;
+  padding: 0.5rem;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin: 0.5rem;
+  outline: 0.2rem solid white;
+}
+
+.type-water {
+  background-color: #2981ef;
+  border-radius: 1rem;
+  padding: 0.5rem;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin: 0.5rem;
+  outline: 0.2rem solid white;
+}
+
+.type-electric {
+  background-color: #fabf00;
+  border-radius: 1rem;
+  padding: 0.5rem;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin: 0.5rem;
+  outline: 0.2rem solid white;
+}
+
+.type-flying {
+  background-color: #81b8ee;
+  border-radius: 1rem;
+  padding: 0.5rem;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin: 0.5rem;
+  outline: 0.2rem solid white;
+}
+
+.type-normal {
+  background-color: #9fa19e;
+  border-radius: 1rem;
+  padding: 0.5rem;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin: 0.5rem;
+  outline: 0.2rem solid white;
+}
+
+.type-ground {
+  background-color: #915121;
+  border-radius: 1rem;
+  padding: 0.5rem;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin: 0.5rem;
+  outline: 0.2rem solid white;
+}
+
+.type-ground {
+  background-color: #915121;
+  border-radius: 1rem;
+  padding: 0.5rem;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin: 0.5rem;
+  outline: 0.2rem solid white;
+}
+
+.type-rock {
+  background-color: #aea981;
+  border-radius: 1rem;
+  padding: 0.5rem;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin: 0.5rem;
+  outline: 0.2rem solid white;
+}
+
+.type-psychic {
+  background-color: #ee4179;
+  border-radius: 1rem;
+  padding: 0.5rem;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin: 0.5rem;
+  outline: 0.2rem solid white;
+}
+
+.type-bug {
+  background-color: #91a11a;
+  border-radius: 1rem;
+  padding: 0.5rem;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin: 0.5rem;
+  outline: 0.2rem solid white;
+}
+
+.type-poison {
+  background-color: #9241cc;
+  border-radius: 1rem;
+  padding: 0.5rem;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin: 0.5rem;
+  outline: 0.2rem solid white;
+}
+
+.type-fighting {
+  background-color: #ff7f00;
+  border-radius: 1rem;
+  padding: 0.5rem;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin: 0.5rem;
+  outline: 0.2rem solid white;
+}
+
+.type-ice {
+  background-color: #3fd9ff;
+  border-radius: 1rem;
+  padding: 0.5rem;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin: 0.5rem;
+  outline: 0.2rem solid white;
+}
+
+.type-ghost {
+  background-color: #704070;
+  border-radius: 1rem;
+  padding: 0.5rem;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin: 0.5rem;
+  outline: 0.2rem solid white;
+}
+
+.type-dark {
+  background-color: #50413e;
+  border-radius: 1rem;
+  padding: 0.5rem;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin: 0.5rem;
+  outline: 0.2rem solid white;
+}
+
+.type-steel {
+  background-color: #60a1b7;
+  border-radius: 1rem;
+  padding: 0.5rem;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin: 0.5rem;
+  outline: 0.2rem solid white;
+}
+
+.type-dragon {
+  background-color: #5261e1;
+  border-radius: 1rem;
+  padding: 0.5rem;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin: 0.5rem;
+  outline: 0.2rem solid white;
+}
+
+.type-fairy {
+  background-color: #ee70ee;
+  border-radius: 1rem;
+  padding: 0.5rem;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin: 0.5rem;
+  outline: 0.2rem solid white;
 }
