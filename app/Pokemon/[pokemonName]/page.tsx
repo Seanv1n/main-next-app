@@ -76,7 +76,7 @@ const page: FC<pageProps> = async ({ params }) => {
         <article className='h-full w-full overflow-auto bg-gray-700 text-white p-2'>
             <div className='text-xl m-2 flex items-center'>
                 <Image src={pokeapiRes.sprites.front_default ? pokeapiRes.sprites.front_default : ''} width={200} height={200} alt='pokemon_sprite'/>
-                <div>{result.name}</div>
+                <div>{result ? result.name : ''}</div>
                 <ul>{pokeapiRes.types.map((col: {type: any}, i: React.Key) => {
                     return (
                         <li key={i} className={'type-' + col.type.name}>{col.type.name}</li>
@@ -84,31 +84,31 @@ const page: FC<pageProps> = async ({ params }) => {
                 })}</ul>
             </div>
             <div className='grid grid-cols-2 justify-center'>
-                <ul className='m-2 px-7'>{result.abilities.map((col: any, i) => {
+                <ul className='m-2 px-7'>{result ? result.abilities.map((col: any, i) => {
                     return (
                         <li className='w-full flex justify-between' key={i}><span>{col.name}</span><span>{col.percentage}</span></li>
                     )
-                })}</ul>
-                <ul className='m-2 px-7'>{result.items.map((col: any, i) => {
+                }) : ''}</ul>
+                <ul className='m-2 px-7'>{result ? result.items.map((col: any, i) => {
                     return (
                         <li className='w-full flex justify-between' key={i}><span>{col.name}</span><span>{col.percentage}</span></li>
                     )
-                })}</ul>
-                <ul className='m-2 px-7'>{result.moves.map((col: any, i) => {
+                }) : ''}</ul>
+                <ul className='m-2 px-7'>{result ? result.moves.map((col: any, i) => {
                     return (
                         <li className='w-full flex justify-between' key={i}><span>{col.name}</span><span>{col.percentage}</span></li>
                     )
-                })}</ul>
-                <ul className='m-2 px-7'>{result.spreads.map((col: any, i) => {
+                }) : ''}</ul>
+                <ul className='m-2 px-7'>{result ? result.spreads.map((col: any, i) => {
                     return (
                         <li className='w-full flex justify-between' key={i}><span>{col.name}</span><span>{col.percentage}</span></li>
                     )
-                })}</ul>
-                <ul className='m-2 px-7'>{result.teammates.map((col: any, i) => {
+                }) : ''}</ul>
+                <ul className='m-2 px-7'>{result ? result.teammates.map((col: any, i) => {
                     return (
                         <li className='w-full flex justify-between' key={i}><span>{col.name}</span><span>{col.percentage}</span></li>
                     )
-                })}</ul>
+                }) : ''}</ul>
             </div>
         </article>
     )

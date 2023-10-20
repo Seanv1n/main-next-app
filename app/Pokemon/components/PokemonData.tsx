@@ -8,7 +8,7 @@ interface Pokemon {
 
 const PokemonData = async () => {
     const currentDate = new Date();
-    currentDate.setMonth(currentDate.getMonth() - 2);
+    currentDate.setMonth(currentDate.getMonth() - 1);
 
     const year = currentDate.getFullYear();
     const month = (currentDate.getMonth() + 1).toString().padStart(2, '0');
