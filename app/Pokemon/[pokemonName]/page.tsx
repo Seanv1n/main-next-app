@@ -38,9 +38,19 @@ const page: FC<pageProps> = async ({ params }) => {
 
     const year = currentDate.getFullYear();
     const month = (currentDate.getMonth() + 1).toString().padStart(2, '0');
-    const file = await fs.readFile(process.cwd() + `/app/Pokemon/python/json/output${year}-${month}.json`, 'utf8');
-    const data = JSON.parse(file);
-
+    // const file = await fs.readFile(process.cwd() + `/app/Pokemon/python/json/output${year}-${month}.json`, 'utf8');
+    let file;
+    let data;
+    try {
+        file = await fs.readFile(process.cwd() + `/app/Pokemon/python/json/output${year}-${month}.json`, 'utf8');
+        try {
+            data = JSON.parse(file);
+        } catch (error) {
+            data = '';
+        }
+    } catch (error) {
+        data = '';
+    }
     let URIname = pokemon.toLowerCase().replace(/\s+/g, '-')
 
     const incarnate = ['landorus', 'tornadus', 'thundurus'];
@@ -74,9 +84,9 @@ const page: FC<pageProps> = async ({ params }) => {
     return (
         <article className='h-full w-full overflow-auto bg-gray-700 text-white p-2'>
             <div className='text-xl m-2 flex items-center'>
-                <Image src={pokeapiRes.sprites.front_default ? pokeapiRes.sprites.front_default : ''} width={200} height={200} alt='pokemon_sprite'/>
+                <Image src={pokeapiRes.sprites.front_default ? pokeapiRes.sprites.front_default : ''} width={200} height={200} alt='pokemon_sprite' />
                 <div>{result ? result.name : ''}</div>
-                <ul>{pokeapiRes.types.map((col: {type: any}, i: React.Key) => {
+                <ul>{pokeapiRes.types.map((col: { type: any }, i: React.Key) => {
                     return (
                         <li key={i} className={'type-' + col.type.name}>{col.type.name}</li>
                     )
