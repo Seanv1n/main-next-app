@@ -1,7 +1,19 @@
 import React from 'react'
+import { promises as fs } from 'fs';
 import PokemonData from './components/PokemonData'
 
-const navbar = () => {
+interface Pokemon {
+    name: string
+}
+
+const navbar = async () => {
+    const currentDate = new Date();
+    currentDate.setMonth(currentDate.getMonth() - 1);
+
+    const year = currentDate.getFullYear();
+    const month = (currentDate.getMonth() + 1).toString().padStart(2, '0');
+    const file = await fs.readFile(process.cwd() + `/app/Pokemon/python/json/output${year}-${month}.json`, 'utf8');
+    const data = JSON.parse(file);
 
     return (
         <nav className='bg-gray-800 text-white hidden md:block w-1/4 p-2'>
@@ -18,10 +30,7 @@ const navbar = () => {
                     <option>Pokemon Showdown</option>
                 </select>
             </div>
-            <div className='w-full'>
-                <input className='bg-gray-700 p-2 m-2' type='text' placeholder='Search Pokemon' />
-            </div>
-            <PokemonData />
+            <PokemonData data={data} />
         </nav>
     )
 }
