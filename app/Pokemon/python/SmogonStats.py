@@ -7,7 +7,7 @@ def GetStats():
     filename = f"moveset{date}.txt"
     file_path = os.path.join(directory, filename)
 
-    url = 'https://www.smogon.com/stats/' + date + '/moveset/gen9vgc2023regulationd-1760.txt'
+    url = 'https://www.smogon.com/stats/' + date + '/moveset/gen9vgc2023regulatione-1760.txt'
 
     response = requests.get(url).text
 

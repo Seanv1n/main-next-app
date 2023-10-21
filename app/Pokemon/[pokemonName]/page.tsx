@@ -39,7 +39,6 @@ const page: FC<pageProps> = async ({ params }) => {
     const year = currentDate.getFullYear();
     const month = (currentDate.getMonth() + 1).toString().padStart(2, '0');
     const file = await fs.readFile(process.cwd() + `/app/Pokemon/python/json/output${year}-${month}.json`, 'utf8');
-    console.log(`/app/Pokemon/python/json/output${year}-${month}.json`)
     const data = JSON.parse(file);
 
     let URIname = pokemon.toLowerCase().replace(/\s+/g, '-')
