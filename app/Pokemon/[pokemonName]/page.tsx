@@ -1,6 +1,8 @@
 import React, { FC } from 'react'
 import { promises as fs } from 'fs';
 import Image from 'next/image';
+import Move from './move';
+// import '../../../public/Pikalytics/styles.e57bf9335ed6a99b.css'
 
 interface pageProps {
     params: { pokemonName: string }
@@ -82,40 +84,52 @@ const page: FC<pageProps> = async ({ params }) => {
 
     const result: pokemonInfo = data.find((item: { name: string; }) => item.name === pokemon);
     return (
-        <article className='h-full w-full overflow-auto bg-gray-700 text-white p-2'>
+        <article className='h-full w-full overflow-auto md:overscroll-none bg-gray-700 text-white p-2'>
             <div className='text-xl m-2 flex items-center'>
-                <Image src={pokeapiRes.sprites.front_default ? pokeapiRes.sprites.front_default : ''} width={200} height={200} alt='pokemon_sprite' />
+                <Image src={pokeapiRes.sprites.front_default ? pokeapiRes.sprites.front_default : ''} width={200} height={200} alt='pokemon_sprite' loading='lazy' />
                 <div>{result ? result.name : ''}</div>
-                <ul>{pokeapiRes.types.map((col: { type: any }, i: React.Key) => {
+                <ul className='flex`'>{pokeapiRes.types.map((col: { type: any }, i: React.Key) => {
                     return (
                         <li key={i} className={'type-' + col.type.name}>{col.type.name}</li>
                     )
                 })}</ul>
             </div>
-            <div className='grid grid-cols-2 justify-center'>
-                <ul className='m-2 px-7'>{result ? result.abilities.map((col: any, i) => {
+            <div className='grid grid-cols-1 md:grid-cols-2 justify-center'>
+                <ul className='m-2 px-7 bg-gray-900 py-2 rounded-md'>{pokeapiRes ? pokeapiRes.stats.map((col: any, i) => {
+                    return (
+                        <li className='w-full flex justify-between' key={i}><span className='uppercase'>{col.stat.name}</span><span>{col.base_stat}</span></li>
+                    )
+                }) : ''}</ul>
+                <ul className='m-2 px-7 bg-gray-900 py-2 rounded-md'>{result ? result.abilities.map((col: any, i) => {
                     return (
                         <li className='w-full flex justify-between' key={i}><span>{col.name}</span><span>{col.percentage}</span></li>
                     )
                 }) : ''}</ul>
-                <ul className='m-2 px-7'>{result ? result.items.map((col: any, i) => {
+                <ul className='m-2 px-7 bg-gray-900 py-2 rounded-md'>{result ? result.items.map((col: any, i) => {
                     return (
                         <li className='w-full flex justify-between' key={i}><span>{col.name}</span><span>{col.percentage}</span></li>
                     )
                 }) : ''}</ul>
-                <ul className='m-2 px-7'>{result ? result.moves.map((col: any, i) => {
+                <ul className='m-2 px-7 bg-gray-900 py-2 rounded-md'>{result ? result.moves.map((col: any, i) => {
                     return (
-                        <li className='w-full flex justify-between' key={i}><span>{col.name}</span><span>{col.percentage}</span></li>
+                        <li className='w-full flex justify-between items-center' key={i}>
+                            <span className='w-1/3'>{col.name}</span>
+                            <Move move={col.name} />
+                            <span className='w-1/3 text-right'>{col.percentage}</span>
+                        </li>
                     )
                 }) : ''}</ul>
-                <ul className='m-2 px-7'>{result ? result.spreads.map((col: any, i) => {
+                <ul className='m-2 px-7 bg-gray-900 py-2 rounded-md'>{result ? result.spreads.map((col: any, i) => {
                     return (
-                        <li className='w-full flex justify-between' key={i}><span>{col.name}</span><span>{col.percentage}</span></li>
+                        <li className='w-full flex justify-between text-sm' key={i}><span>{col.name}</span><span>{col.percentage}</span></li>
                     )
                 }) : ''}</ul>
-                <ul className='m-2 px-7'>{result ? result.teammates.map((col: any, i) => {
+                <ul className='m-2 px-7 bg-gray-900 py-2 rounded-md'>{result ? result.teammates.map((col: any, i) => {
                     return (
-                        <li className='w-full flex justify-between' key={i}><span>{col.name}</span><span>{col.percentage}</span></li>
+                        <li className='w-full flex justify-between' key={i}>
+                            <span>{col.name}</span>
+                            <span>{col.percentage}</span>
+                        </li>
                     )
                 }) : ''}</ul>
             </div>
