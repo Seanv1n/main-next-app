@@ -1,15 +1,15 @@
 import React from 'react'
 
-const Move = async ({ move }: {move: string}) => {
+const Move = async ({ move }: { move: string }) => {
     let URIname = move.toLowerCase().replace(/\s+/g, '-')
     let pokeapiRes
-    if(URIname !== 'other') {
+    if (URIname !== 'other') {
         const res = await fetch(`https://pokeapi.co/api/v2/move/${URIname}`)
         pokeapiRes = await res.json();
     } else {
         pokeapiRes = {
             type: {
-                name : ''
+                name: ''
             }
         }
     }
