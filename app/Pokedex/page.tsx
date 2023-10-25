@@ -2,7 +2,9 @@ import React from 'react'
 
 const Pokedex = () => {
   return (
-    <div>Pokedex</div>
+    <>
+    <div className='bg-gray-700 w-full'>Pokedex</div>
+    </>
   )
 }
 

@@ -8,7 +8,7 @@ interface pageProps {
     params: { pokemonName: string }
 }
 
-interface pokemonInfo {
+type pokemonInfo = {
     name: string,
     abilities: [
         name: string,
@@ -95,22 +95,22 @@ const page: FC<pageProps> = async ({ params }) => {
                 })}</ul>
             </div>
             <div className='grid grid-cols-1 md:grid-cols-2 justify-center'>
-                <ul className='m-2 px-7 bg-gray-900 py-2 rounded-md'>{pokeapiRes ? pokeapiRes.stats.map((col: any, i) => {
+                <ul className='m-2 px-7 bg-gray-900 py-2 rounded-md'>{pokeapiRes ? pokeapiRes.stats.map((col: any, i: string | number) => {
                     return (
                         <li className='w-full flex justify-between' key={i}><span className='uppercase'>{col.stat.name}</span><span>{col.base_stat}</span></li>
                     )
                 }) : ''}</ul>
-                <ul className='m-2 px-7 bg-gray-900 py-2 rounded-md'>{result ? result.abilities.map((col: any, i) => {
+                <ul className='m-2 px-7 bg-gray-900 py-2 rounded-md'>{result ? result.abilities.map((col: any, i: string | number) => {
                     return (
                         <li className='w-full flex justify-between' key={i}><span>{col.name}</span><span>{col.percentage}</span></li>
                     )
                 }) : ''}</ul>
-                <ul className='m-2 px-7 bg-gray-900 py-2 rounded-md'>{result ? result.items.map((col: any, i) => {
+                <ul className='m-2 px-7 bg-gray-900 py-2 rounded-md'>{result ? result.items.map((col: any, i: string | number) => {
                     return (
                         <li className='w-full flex justify-between' key={i}><span>{col.name}</span><span>{col.percentage}</span></li>
                     )
                 }) : ''}</ul>
-                <ul className='m-2 px-7 bg-gray-900 py-2 rounded-md'>{result ? result.moves.map((col: any, i) => {
+                <ul className='m-2 px-7 bg-gray-900 py-2 rounded-md'>{result ? result.moves.map((col: any, i: string | number) => {
                     return (
                         <li className='w-full flex justify-between items-center' key={i}>
                             <span className='w-1/3'>{col.name}</span>
@@ -119,7 +119,7 @@ const page: FC<pageProps> = async ({ params }) => {
                         </li>
                     )
                 }) : ''}</ul>
-                <ul className='m-2 px-7 bg-gray-900 py-2 rounded-md'>{result ? result.spreads.map((col: any, i) => {
+                <ul className='m-2 px-7 bg-gray-900 py-2 rounded-md'>{result ? result.spreads.map((col: any, i: string | number) => {
                     return (
                         <li className='w-full flex justify-between text-sm' key={i}><span>{col.name}</span><span>{col.percentage}</span></li>
                     )

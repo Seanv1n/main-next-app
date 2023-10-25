@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Move = async ({ move }) => {
+const Move = async ({ move }: {move: string}) => {
     let URIname = move.toLowerCase().replace(/\s+/g, '-')
     let pokeapiRes
     if(URIname !== 'other') {

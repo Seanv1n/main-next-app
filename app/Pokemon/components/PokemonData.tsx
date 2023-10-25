@@ -5,16 +5,16 @@ interface Pokemon {
     name: string
 }
 
-const PokemonData = ({ data }) => {
+const PokemonData = ({ data }: {data: any}) => {
     const [pokemonData, setPokemonData] = useState(data)
 
-    const handleChange = (event) => {
+    const handleChange = (event: { target: { value: any; }; }) => {
         // console.log(event.target.value)
         const filteredData = filterData(event.target.value);
         setPokemonData(filteredData);
     }
 
-    function filterData(inputText) {
+    function filterData(inputText: string) {
         inputText = inputText.toLowerCase();
         return Object.keys(data)
           .filter(key => data[key].name.toLowerCase().includes(inputText))
