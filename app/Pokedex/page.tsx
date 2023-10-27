@@ -13,7 +13,7 @@ type pokeapiRes = {
 }
 
 const Pokedex = () => {
-  const dataSet = pokemonDataSet
+  const dataSet: { [x: string]: any } = pokemonDataSet
   const [pokemonData, setPokemonData] = useState(dataSet)
 
   const handleChange = (event: { target: { value: any; }; }) => {
@@ -38,7 +38,7 @@ const Pokedex = () => {
     <>
       <div className='bg-gray-800 w-full overflow-auto text-white'>
       <input onChange={handleChange} className='bg-gray-700 p-2 pr-0 my-2 w-full' type='text' placeholder='Search Pokemon' />
-        {pokemonData.map((col, i) => {
+        {pokemonData.map((col: string, i: React.Key) => {
           return (
             <div key={i}>
               {col}
