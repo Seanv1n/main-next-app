@@ -7,6 +7,8 @@ export default function Home() {
       <Link href='./Pokemon'>Pokemon</Link>
       <br />
       <Link href='./NotesTailwind'>NotesTailwind</Link>
+      <br />
+      <Link href='./CSSart'>CSSart</Link>
     </main>
   )
 }
