@@ -30,7 +30,7 @@ const PokemonData = ({ data }: {data: any}) => {
                 {pokemonData.map((pokemon: Pokemon, i: number) => {
                     return (
                         <div key={i}>
-                            <Link href={'/Pokemon/' + pokemon.name}>
+                            <Link href={'/Pokemon/Home/' + pokemon.name}>
                                 {pokemon.name}
                             </Link>
                         </div>

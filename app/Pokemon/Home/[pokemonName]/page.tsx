@@ -39,7 +39,7 @@ const page: FC<pageProps> = async ({ params }) => {
     currentDate.setMonth(currentDate.getMonth() - 1);
 
     const year = currentDate.getFullYear();
-    const month = (currentDate.getMonth() + 1).toString().padStart(2, '0');
+    const month = (currentDate.getMonth()).toString().padStart(2, '0');
     // const file = await fs.readFile(process.cwd() + `/app/Pokemon/python/json/output${year}-${month}.json`, 'utf8');
     let file;
     let data;
@@ -94,7 +94,7 @@ const page: FC<pageProps> = async ({ params }) => {
                     )
                 })}</ul>
             </div>
-            <div className='grid grid-cols-1 md:grid-cols-2 justify-center'>
+            <div className='grid grid-cols-1 laptop:grid-cols-2 justify-center'>
                 <ul className='m-2 px-7 bg-gray-900 py-2 rounded-md'>{pokeapiRes ? pokeapiRes.stats.map((col: any, i: string | number) => {
                     return (
                         <li className='w-full flex justify-between' key={i}><span className='uppercase'>{col.stat.name}</span><span>{col.base_stat}</span></li>
